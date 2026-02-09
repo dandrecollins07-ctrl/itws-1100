@@ -50,7 +50,8 @@ Tested locally by opening the HTML files in the browser.
 
 Deployed to my personal web server and verified the site loads at:
 
-URL: https://collid7rpi.eastus.cloudapp.azure.com/iit/index.html
+URL: http://collid7rpi.eastus.cloudapp.azure.com/iit/iit/
+
 
 
 
