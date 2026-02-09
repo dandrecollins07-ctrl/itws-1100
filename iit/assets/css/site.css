@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 40px;
+  color: #111;
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0 0 6px;
+}
+
+.subtext {
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+}
+
+.left {
+  font-weight: 700;
+}
+
+.right {
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.top-space {
+  margin-top: 16px;
+}
+
+hr {
+  margin: 8px 0 12px;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+}
