@@ -20,15 +20,30 @@
 
   --max: 1100px;
   --pad: 24px;
+
+  --header-offset: 120px;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* =========================
+   Anchor Scrolling Improvements
+   ========================= */
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-offset);
 }
+
+section {
+  scroll-margin-top: var(--header-offset);
+}
+
+/* =========================
+   Page Base
+   ========================= */
 
 body {
   margin: 0;
@@ -129,7 +144,12 @@ a:hover {
   justify-content: flex-end;
 }
 
+/* =========================
+   Nav Links + Active Indicator
+   ========================= */
+
 .nav-link {
+  position: relative;
   display: inline-block;
   padding: 10px 12px;
   border-radius: 999px;
@@ -148,6 +168,43 @@ a:hover {
   border-color: var(--border);
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
+}
+
+/* Underline animation */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0%;
+}
+
+/*
+  CSS-only "active section" highlight:
+  Uses :has() — no JavaScript.
+  Works in modern Chrome/Edge/Safari.
+*/
+body:has(#principles:target) .nav-link[href="#principles"],
+body:has(#projects:target) .nav-link[href="#projects"],
+body:has(#contact:target) .nav-link[href="#contact"] {
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body:has(#principles:target) .nav-link[href="#principles"]::after,
+body:has(#projects:target) .nav-link[href="#projects"]::after,
+body:has(#contact:target) .nav-link[href="#contact"]::after {
+  width: 100%;
+  left: 0%;
 }
 
 /* =========================
@@ -266,6 +323,17 @@ a:hover {
   font-size: 14px;
 }
 
+.headshot-note {
+  margin: 10px 0 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: var(--text);
+}
+
 /* =========================
    Sections
    ========================= */
@@ -369,33 +437,6 @@ a:hover {
   background: transparent;
 }
 
-.link-card {
-  display: block;
-  padding: 16px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
-  text-decoration: none;
-}
-
-.link-card:hover {
-  background: rgba(255, 255, 255, 0.07);
-  text-decoration: none;
-}
-
-.link-card-title {
-  display: block;
-  font-weight: 800;
-  letter-spacing: -0.1px;
-}
-
-.link-card-sub {
-  display: block;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
 /* =========================
    Footer
    ========================= */
@@ -449,14 +490,3 @@ a:hover {
     height: 240px;
   }
 }
-.headshot-note {
-  margin: 10px 0 0 0;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  color: var(--text);
-}
-
