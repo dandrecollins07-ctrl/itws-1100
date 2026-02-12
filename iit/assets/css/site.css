@@ -183,8 +183,8 @@ a:hover {
 
 .accent {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 
@@ -220,6 +220,50 @@ a:hover {
   color: var(--text);
   font-size: 12px;
   font-weight: 700;
+}
+
+/* =========================
+   Headshot
+   ========================= */
+
+.headshot-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+}
+
+.headshot-frame {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.headshot-img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.headshot-caption {
+  padding-top: 12px;
+}
+
+.headshot-name {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.headshot-role {
+  margin: 6px 0 0 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 /* =========================
@@ -353,42 +397,6 @@ a:hover {
 }
 
 /* =========================
-   Labs page specifics
-   ========================= */
-
-.lab-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.lab-actions {
-  margin-top: 14px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.status {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.status-done {
-  background: rgba(110, 231, 255, 0.10);
-}
-
-.status-progress {
-  background: rgba(167, 139, 250, 0.10);
-}
-
-/* =========================
    Footer
    ========================= */
 
@@ -435,5 +443,9 @@ a:hover {
 
   .nav-list {
     justify-content: flex-start;
+  }
+
+  .headshot-img {
+    height: 240px;
   }
 }
