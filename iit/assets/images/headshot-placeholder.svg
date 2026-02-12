@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="900" viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6ee7ff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0.30"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="900" fill="#111827"/>
+  <rect x="40" y="40" width="820" height="820" rx="48" fill="url(#g)" opacity="0.35"/>
+  <rect x="40" y="40" width="820" height="820" rx="48" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="3"/>
+
+  <circle cx="450" cy="360" r="120" fill="#ffffff" fill-opacity="0.16"/>
+  <path d="M250 720c50-145 160-210 200-210s150 65 200 210"
+        fill="#ffffff" fill-opacity="0.16"/>
+
+  <text x="450" y="810" text-anchor="middle"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+        font-size="28"
+        fill="#ffffff"
+        fill-opacity="0.75">
+    Add headshot.png to assets/images/
+  </text>
+</svg>

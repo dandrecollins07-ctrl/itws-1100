@@ -449,3 +449,14 @@ a:hover {
     height: 240px;
   }
 }
+.headshot-note {
+  margin: 10px 0 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: var(--text);
+}
+

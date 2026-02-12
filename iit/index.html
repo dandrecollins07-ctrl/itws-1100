@@ -97,7 +97,7 @@
 
           <ul class="quick-facts" aria-label="Quick facts">
             <li><span class="pill">Focus</span> Software • Systems • Analytics</li>
-            <li><span class="pill">Strengths</span> Structure • Debugging • Communication</li>
+            <li><span class="pill">Strengths</span> Debugging • Structure • Communication</li>
             <li><span class="pill">Location</span> RPI • Troy, NY</li>
           </ul>
         </div>
@@ -106,35 +106,41 @@
           <div class="headshot-card">
             <div class="headshot-frame">
               <!--
-                HOW TO ADD YOUR PHOTO:
-                1) Put your image in: assets/images/headshot.jpg
-                2) Keep the name "headshot.jpg" OR update the src below.
-                3) Recommended: square-ish photo (or centered portrait).
+                HEADSHOT SETUP (NO JS):
+                Put your real headshot here:
+                assets/images/headshot.jpg
+
+                IMPORTANT:
+                - The filename MUST match exactly (case sensitive).
+                - If you use .png, rename it in the source line below.
               -->
-              <img class="headshot-img"
-                   src="assets/images/headshot.jpg"
-                   alt="Headshot of D'Andre Collins">
+              <picture>
+                <source srcset="assets/images/headshot.png">
+                <img class="headshot-img"
+                     src="assets/images/headshot-placeholder.svg"
+                     alt="Headshot of D'Andre Collins">
+              </picture>
             </div>
 
             <div class="headshot-caption">
               <p class="headshot-name">D’Andre Collins</p>
               <p class="headshot-role">CS + ITWS • RPI</p>
             </div>
+
           </div>
 
           <div class="card highlight">
             <h2 class="card-title">Now</h2>
             <p class="card-text">
-              Building stronger fundamentals in data structures, linear algebra, and web development
-              while tightening my workflow (clean commits, readable code, clear documentation).
+              Strengthening fundamentals in data structures, linear algebra, and web development while
+              building a portfolio I can explain clearly and confidently.
             </p>
           </div>
 
           <div class="card highlight">
             <h2 class="card-title">What I value</h2>
             <p class="card-text">
-              Reliability, clarity, and results. I like building things that make sense to humans
-              and still hold up under real constraints.
+              Reliability, clarity, and measurable results. I like code that makes sense to humans and still holds up under constraints.
             </p>
           </div>
         </div>
@@ -161,7 +167,7 @@
           <article class="card">
             <h3 class="card-title">Debug with intent</h3>
             <p class="card-text">
-              I don’t “guess-and-check.” I isolate variables, test assumptions, and follow evidence until it makes sense.
+              I don’t guess-and-check. I isolate variables, test assumptions, and follow evidence until the root cause makes sense.
             </p>
           </article>
 
@@ -180,63 +186,36 @@
         <header class="section-head">
           <h2 class="section-title">Projects</h2>
           <p class="section-subtitle">
-            Real work I’ve done (and can explain). More coming as I ship new builds.
+            Selected work I’ve completed and can walk through clearly.
           </p>
         </header>
 
         <div class="grid-3">
           <article class="card project">
-            <h3 class="card-title">ClassInSight</h3>
+            <h3 class="card-title">Document Analyzer</h3>
             <p class="card-text">
-              Course registration website project built at RPI. Focused on usable structure, clean UI flow,
-              and making course selection easier to navigate (case-study style project).
+              Parsed and analyzed documents to calculate word sophistication, word-pair counts, and language variety.
+              Implemented Jaccard similarity to compare style and content similarity using sets and file handling.
             </p>
-            <p class="meta">Web App • Aug 2024 – Dec 2024</p>
+            <p class="meta">Python • NLP • Sets • Fall 2025</p>
+          </article>
+
+          <article class="card project">
+            <h3 class="card-title">Autocorrect and Movie Rater</h3>
+            <p class="card-text">
+              Built an autocorrect system using Python dictionaries to handle insertions, deletions, swaps, and replacements.
+              Processed JSON movie and Twitter ratings to compute weighted combined ratings for year and genre analysis.
+            </p>
+            <p class="meta">Python • Dictionaries • JSON • Fall 2025</p>
           </article>
 
           <article class="card project">
             <h3 class="card-title">Personal Portfolio Website</h3>
             <p class="card-text">
-              A personal site built for ITWS-1100. Designed with semantic HTML and a shared CSS theme,
-              with an AI-assisted iteration history (prompt → output) and versioned commits.
+              Founder-style personal site built for ITWS-1100 using semantic HTML and shared CSS.
+              Includes AI-assisted iteration history (prompt → output) with versioned commits.
             </p>
-            <p class="meta">Web • ITWS-1100</p>
-          </article>
-
-          <article class="card project">
-            <h3 class="card-title">C++ Vector (Vec) Implementation</h3>
-            <p class="card-text">
-              A deep dive into memory management and class design by implementing a vector-like container:
-              dynamic allocation, copy behavior, and safe resizing patterns.
-            </p>
-            <p class="meta">C++ • Data Structures</p>
-          </article>
-
-          <article class="card project">
-            <h3 class="card-title">GDB Debugging Case Study</h3>
-            <p class="card-text">
-              Systematic debugging using gdb to locate the first affected user and verify output behavior.
-              A structured approach to tracing, breakpoints, and reasoning.
-            </p>
-            <p class="meta">Debugging • Data Structures Lab</p>
-          </article>
-
-          <article class="card project">
-            <h3 class="card-title">Resume Website (Semantic HTML)</h3>
-            <p class="card-text">
-              A clean HTML resume site with consistent section structure and styling, built to be readable
-              and easy to update over time.
-            </p>
-            <p class="meta">Web • ITWS Lab 2</p>
-          </article>
-
-          <article class="card project">
-            <h3 class="card-title">Leadership + Service Work</h3>
-            <p class="card-text">
-              Not code, but still impact: mentoring, support work, and leadership roles that strengthened
-              communication, reliability, and teamwork.
-            </p>
-            <p class="meta">Professional Development</p>
+            <p class="meta">HTML • CSS • ITWS-1100</p>
           </article>
         </div>
       </div>
