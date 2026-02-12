@@ -27,10 +27,31 @@
   --header-offset: 120px;
 
   --reading-width: 72ch;
+
+  --focus-ring: 3px;
+  --focus-offset: 3px;
+  --focus-glow: rgba(110, 231, 255, 0.28);
+  --focus-glow-2: rgba(167, 139, 250, 0.22);
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* =========================
+   Reduced Motion (Accessibility)
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+  }
 }
 
 /* =========================
@@ -76,22 +97,15 @@ p {
   margin-bottom: 0;
 }
 
-a {
-  color: var(--text);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-a:hover {
-  text-decoration-thickness: 2px;
-}
-
 .container {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad);
 }
+
+/* =========================
+   Skip Link (Keyboard)
+   ========================= */
 
 .skip-link {
   position: absolute;
@@ -102,7 +116,7 @@ a:hover {
   overflow: hidden;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
   position: static;
   width: auto;
   height: auto;
@@ -111,6 +125,64 @@ a:hover {
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  outline: none;
+  box-shadow: 0 0 0 var(--focus-ring) var(--focus-glow);
+  text-decoration: none;
+}
+
+/* =========================
+   Global Focus Styles (Accessibility)
+   ========================= */
+
+a,
+button {
+  border-radius: 10px;
+}
+
+a:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+.nav-link:focus-visible,
+.btn:focus-visible {
+  outline: var(--focus-ring) solid transparent;
+  box-shadow:
+    0 0 0 var(--focus-ring) var(--focus-glow),
+    0 0 0 calc(var(--focus-ring) + 2px) var(--focus-glow-2);
+}
+
+a:focus-visible {
+  text-decoration: none;
+}
+
+a:focus-visible,
+.nav-link:focus-visible,
+.btn:focus-visible {
+  outline-offset: var(--focus-offset);
+}
+
+/* =========================
+   Links
+   ========================= */
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition-property: text-decoration-thickness, color;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
 }
 
 /* =========================
@@ -146,6 +218,10 @@ a:hover {
   text-decoration: none;
 }
 
+.brand-link:hover {
+  text-decoration: none;
+}
+
 .brand-sub {
   margin: 0;
   color: var(--muted);
@@ -176,11 +252,15 @@ a:hover {
   color: var(--muted);
   text-decoration: none;
   line-height: 1.2;
+  transition-property: background, border-color, color;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
 }
 
 .nav-link:hover {
   border-color: var(--border);
   color: var(--text);
+  text-decoration: none;
 }
 
 .nav-link.is-active {
@@ -197,7 +277,9 @@ a:hover {
   width: 0%;
   height: 2px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transition: width 0.3s ease, left 0.3s ease;
+  transition-property: width, left;
+  transition-duration: 260ms;
+  transition-timing-function: ease;
 }
 
 .nav-link:hover::after {
@@ -205,7 +287,10 @@ a:hover {
   left: 0%;
 }
 
-body:has(#principles:target) .nav-link[href="#principles"],
+/*
+  CSS-only "active section" highlight:
+  Uses :has() — no JavaScript.
+*/
 body:has(#projects:target) .nav-link[href="#projects"],
 body:has(#contact:target) .nav-link[href="#contact"] {
   color: var(--text);
@@ -213,11 +298,15 @@ body:has(#contact:target) .nav-link[href="#contact"] {
   background: rgba(255, 255, 255, 0.06);
 }
 
-body:has(#principles:target) .nav-link[href="#principles"]::after,
 body:has(#projects:target) .nav-link[href="#projects"]::after,
 body:has(#contact:target) .nav-link[href="#contact"]::after {
   width: 100%;
   left: 0%;
+}
+
+/* Extra clarity: focus state for nav links */
+.nav-link:focus-visible {
+  text-decoration: none;
 }
 
 /* =========================
@@ -277,27 +366,36 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
   margin: 18px 0 18px 0;
 }
 
-.quick-facts {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.6;
+/* =========================
+   Buttons
+   ========================= */
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--text);
+  font-weight: 750;
+  text-decoration: none;
+  line-height: 1.2;
+  transition-property: background, border-color, transform;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
 }
 
-.pill {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
-  margin-right: 8px;
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 750;
+.btn:hover {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-ghost {
+  background: transparent;
 }
 
 /* =========================
@@ -403,13 +501,6 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
   margin-top: 18px;
 }
 
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 18px;
-}
-
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -440,37 +531,50 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
   line-height: 1.5;
 }
 
-.highlight {
-  padding: 18px;
-}
-
 .project {
   min-height: 170px;
 }
 
 /* =========================
-   Buttons
+   Future / Coming Soon Section
    ========================= */
 
-.btn {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.10);
-  color: var(--text);
-  font-weight: 750;
-  text-decoration: none;
+.future-section {
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(110, 231, 255, 0.08),
+    rgba(167, 139, 250, 0.08)
+  );
+  border-top: 1px solid var(--border);
+}
+
+.future-inner {
+  max-width: 780px;
+  text-align: center;
+}
+
+.future-title {
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  letter-spacing: -0.4px;
   line-height: 1.2;
 }
 
-.btn:hover {
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.14);
+.future-text {
+  margin: 0 0 16px 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
 }
 
-.btn-ghost {
-  background: transparent;
+.future-highlight {
+  margin-top: 28px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--text);
 }
 
 /* =========================
@@ -510,10 +614,6 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
     grid-template-columns: 1fr;
   }
 
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-
   .nav {
     align-items: flex-start;
     flex-direction: column;
@@ -534,44 +634,4 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
   .section {
     padding: 46px 0;
   }
-}
-/* =========================
-   Future / Coming Soon Section
-   ========================= */
-
-.future-section {
-  padding: 80px 0;
-  background: linear-gradient(
-    135deg,
-    rgba(110, 231, 255, 0.08),
-    rgba(167, 139, 250, 0.08)
-  );
-  border-top: 1px solid var(--border);
-}
-
-.future-inner {
-  max-width: 780px;
-  text-align: center;
-}
-
-.future-title {
-  margin: 0 0 20px 0;
-  font-size: 32px;
-  letter-spacing: -0.4px;
-}
-
-.future-text {
-  margin: 0 0 16px 0;
-  font-size: 17px;
-  line-height: 1.8;
-  color: var(--muted);
-}
-
-.future-highlight {
-  margin-top: 28px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  font-size: 13px;
-  color: var(--text);
 }
