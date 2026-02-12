@@ -1,4 +1,4 @@
-/* =========================
+/* ========================= 
    Base + Theme
    ========================= */
 
@@ -324,6 +324,12 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
   align-items: start;
 }
 
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 .hero-left {
   max-width: var(--reading-width);
 }
@@ -364,6 +370,39 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
   gap: 12px;
   flex-wrap: wrap;
   margin: 18px 0 18px 0;
+}
+
+/* =========================
+   Quick Facts (Bullets + Pills)
+   ========================= */
+
+.quick-facts {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 18px 0 0 0;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.quick-facts li {
+  display: list-item;
+}
+
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  margin-right: 10px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 /* =========================
@@ -408,7 +447,6 @@ body:has(#contact:target) .nav-link[href="#contact"]::after {
   border-radius: var(--radius);
   padding: 16px;
   box-shadow: var(--shadow);
-  margin-bottom: 14px;
 }
 
 .headshot-frame {
