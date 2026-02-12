@@ -4,93 +4,211 @@
   <meta charset="UTF-8">
   <title>D'Andre Collins</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="D’Andre Collins — CS + ITWS student at RPI focused on systems engineering and data analytics.">
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body>
-  <header class="header">
-    <h1>D'Andre Collins</h1>
-    <p>
-      <strong>Home</strong> |
-      <a href="labs/index.html">Labs</a> |
-      <a href="lab02/index.html">Resume</a>
-    </p>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <a class="brand-link" href="index.html" aria-label="Go to homepage">
+          D’Andre Collins
+        </a>
+        <p class="brand-sub">CS + ITWS @ RPI • Systems • Analytics</p>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link is-active" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="labs/index.html">Labs</a></li>
+          <li><a class="nav-link" href="lab02/index.html">Resume</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Welcome</h2>
-      <hr>
+  <main id="content">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <p class="eyebrow">Building reliable systems • turning data into decisions</p>
+          <h1 class="hero-title">
+            I design <span class="accent">structured</span> solutions
+            that stay clear under pressure.
+          </h1>
+          <p class="hero-lede">
+            I’m a dual major in Computer Science and Information Technology & Web Science at RPI.
+            I’m focused on systems engineering and data analytics — how complex parts work together,
+            and how to make them measurable, dependable, and human-friendly.
+          </p>
 
-      <p class="subtext">
-        I am a dual major in Computer Science and Information Technology & Web Science at
-        Rensselaer Polytechnic Institute. My academic interests focus on
-        <strong>systems engineering</strong> and <strong>data analytics</strong>,
-        with an emphasis on building reliable, well-structured technical systems.
-      </p>
+          <div class="hero-cta">
+            <a class="btn" href="lab02/index.html">View Resume</a>
+            <a class="btn btn-ghost" href="labs/index.html">See Labs</a>
+          </div>
 
-      <p class="subtext">
-        Mathematics is one of my favorite subjects due to its emphasis on intense
-        problem solving and structured thinking. I enjoy working through challenging
-        problems that require persistence and multiple approaches.
-      </p>
+          <ul class="quick-facts" aria-label="Quick facts">
+            <li><span class="pill">RPI</span> Troy, NY</li>
+            <li><span class="pill">Interests</span> Systems • Analytics • UX thinking</li>
+            <li><span class="pill">Style</span> Clean design • strong fundamentals</li>
+          </ul>
+        </div>
+
+        <div class="hero-right">
+          <div class="card highlight">
+            <h2 class="card-title">Now</h2>
+            <p class="card-text">
+              Strengthening fundamentals in data structures, linear algebra, and web development while
+              building a portfolio that’s actually useful in real teams.
+            </p>
+          </div>
+
+          <div class="card highlight">
+            <h2 class="card-title">Next</h2>
+            <p class="card-text">
+              Add polished projects: a small analytics dashboard, a systems-style automation tool,
+              and a “case study” write-up showing how I think.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="top-space">
-      <h2>Goals & Academic Interests</h2>
-      <hr> 
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Principles</h2>
+          <p class="section-subtitle">
+            The rules I try to follow when I build anything technical.
+          </p>
+        </header>
 
-      <ul>
-        <li>Develop strong fundamentals in systems design and data-driven decision making</li>
-        <li>Apply computing concepts to real-world infrastructure and analytics problems</li>
-        <li>Build technical solutions that balance performance, clarity, and usability</li>
-      </ul>
+        <div class="grid-3">
+          <article class="card">
+            <h3 class="card-title">Clarity wins</h3>
+            <p class="card-text">
+              If I can’t explain it simply, it isn’t finished. I optimize for readability and maintainability.
+            </p>
+          </article>
 
-      <p class="subtext">
-        To better understand how people interact with technology, I’ve taken coursework
-        in <strong>cognitive science</strong>, which has shaped how I think about usability,
-        human behavior, and decision-making in technical systems.
-      </p>
+          <article class="card">
+            <h3 class="card-title">Measure reality</h3>
+            <p class="card-text">
+              I like data because it exposes assumptions. Metrics, tests, and logs keep systems honest.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Design for humans</h3>
+            <p class="card-text">
+              My cognitive science exposure influences how I think about usability and decision-making.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="top-space">
-      <h2>Outside the Classroom</h2>
-      <hr>
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">
+            A living space for work I’m proud of. (These can start as “in progress.”)
+          </p>
+        </header>
 
-      <p class="subtext">
-        Outside of academics, I spend a lot of time staying active. I regularly go to the gym
-        and enjoy playing basketball as a way to relieve stress.
-      </p>
+        <div class="grid-3">
+          <article class="card project">
+            <h3 class="card-title">Systems Health Monitor</h3>
+            <p class="card-text">
+              A lightweight tool concept: track CPU, memory, and performance trends and summarize issues.
+            </p>
+            <p class="meta">Status: Planned</p>
+          </article>
 
-      <p class="subtext">
-        I’m also a longtime Minecraft player — one of the first experiences
-        that sparked my interest in systems, automation, and creative problem solving.
-      </p>
+          <article class="card project">
+            <h3 class="card-title">Student Success Analytics</h3>
+            <p class="card-text">
+              A mini analytics case study: clean data, visualize trends, and explain insights clearly.
+            </p>
+            <p class="meta">Status: Planned</p>
+          </article>
+
+          <article class="card project">
+            <h3 class="card-title">Portfolio Website Iterations</h3>
+            <p class="card-text">
+              Documented AI-assisted design iterations with commits showing prompt → output evolution.
+            </p>
+            <p class="meta">Status: Active</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="top-space">
-      <h2>Explore</h2>
-      <hr>
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Explore</h2>
+          <p class="section-subtitle">Everything important, one place.</p>
+        </header>
 
-      <ul>
-        <li><a href="labs/index.html">View ITWS-1100 Labs</a></li>
-        <li><a href="lab02/index.html">View Resume</a></li>
-        <li>
-          <a href="https://github.com/dandrecollins07-ctrl" target="_blank" rel="noopener">
-            GitHub
+        <div class="grid-2">
+          <a class="link-card" href="labs/index.html">
+            <span class="link-card-title">ITWS Labs</span>
+            <span class="link-card-sub">Assignments, notes, and progress</span>
           </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/dandrecollins" target="_blank" rel="noopener">
-            LinkedIn
+
+          <a class="link-card" href="lab02/index.html">
+            <span class="link-card-title">Resume</span>
+            <span class="link-card-sub">Skills, experience, and leadership</span>
           </a>
-        </li>
-      </ul>
+
+          <a class="link-card" href="https://github.com/dandrecollins07-ctrl" target="_blank" rel="noopener">
+            <span class="link-card-title">GitHub</span>
+            <span class="link-card-sub">Projects and code snapshots</span>
+          </a>
+
+          <a class="link-card" href="https://www.linkedin.com/in/dandrecollins" target="_blank" rel="noopener">
+            <span class="link-card-title">LinkedIn</span>
+            <span class="link-card-sub">Professional profile and updates</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">
+            Best way to reach me: email. I respond fastest with clear context + what you need.
+          </p>
+        </header>
+
+        <div class="card">
+          <p class="card-text">
+            Email: <a href="mailto:collid7@rpi.edu">collid7@rpi.edu</a>
+          </p>
+          <p class="card-text">
+            I’m open to: early internships, campus opportunities, mentorship, and project collaborations.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2026 D’Andre Collins</p>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="footer-text">&copy; 2026 D’Andre Collins</p>
+      <p class="footer-text">
+        Built for ITWS-1100 • No JavaScript • Semantic HTML • Shared CSS
+      </p>
+    </div>
   </footer>
 </body>
 </html>
