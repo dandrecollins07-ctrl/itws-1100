@@ -22,40 +22,20 @@
 
       <nav aria-label="Primary">
         <ul class="nav-list">
-          <li>
-            <a class="nav-link is-active" href="index.html">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a class="nav-link" href="#projects">
-              Projects
-            </a>
-          </li>
-
-          <li>
-            <a class="nav-link" href="#contact">
-              Contact
-            </a>
-          </li>
-
+          <li><a class="nav-link is-active" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
           <li>
             <a class="nav-link"
                href="labs/index.html"
                target="_blank"
-               rel="noopener">
-              Labs
-            </a>
+               rel="noopener">Labs</a>
           </li>
-
           <li>
             <a class="nav-link"
                href="lab02/index.html"
                target="_blank"
-               rel="noopener">
-              Resume
-            </a>
+               rel="noopener">Resume</a>
           </li>
         </ul>
       </nav>
@@ -63,6 +43,7 @@
   </header>
 
   <main id="content">
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-left">
@@ -83,36 +64,18 @@
             <a class="btn"
                href="lab02/index.html"
                target="_blank"
-               rel="noopener">
-              View Resume
-            </a>
+               rel="noopener">View Resume</a>
 
             <a class="btn btn-ghost"
                href="labs/index.html"
                target="_blank"
-               rel="noopener">
-              See Labs
-            </a>
+               rel="noopener">See Labs</a>
           </div>
-
-          <ul class="quick-facts" aria-label="Quick facts">
-            <li><span class="pill">Focus</span> Software • Systems • Analytics</li>
-            <li><span class="pill">Strengths</span> Debugging • Structure • Communication</li>
-            <li><span class="pill">Location</span> RPI • Troy, NY</li>
-          </ul>
         </div>
 
         <div class="hero-right">
           <div class="headshot-card">
             <div class="headshot-frame">
-              <!--
-                HEADSHOT SETUP (NO JS):
-                Put your real headshot here:
-                assets/images/headshot.png
-
-                IMPORTANT:
-                - The filename MUST match exactly (case sensitive).
-              -->
               <picture>
                 <source srcset="assets/images/headshot.png">
                 <img class="headshot-img"
@@ -125,61 +88,12 @@
               <p class="headshot-name">D’Andre Collins</p>
               <p class="headshot-role">CS + ITWS • RPI</p>
             </div>
-
-          </div>
-
-          <div class="card highlight">
-            <h2 class="card-title">Now</h2>
-            <p class="card-text">
-              Strengthening fundamentals in data structures, linear algebra, and web development while
-              building a portfolio I can explain clearly and confidently.
-            </p>
-          </div>
-
-          <div class="card highlight">
-            <h2 class="card-title">What I value</h2>
-            <p class="card-text">
-              Reliability, clarity, and measurable results. I like code that makes sense to humans and still holds up under constraints.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="principles" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2 class="section-title">Principles</h2>
-          <p class="section-subtitle">
-            The rules I try to follow when I build anything technical.
-          </p>
-        </header>
-
-        <div class="grid-3">
-          <article class="card">
-            <h3 class="card-title">Clarity wins</h3>
-            <p class="card-text">
-              If I can’t explain it simply, it isn’t finished. I optimize for readable code and maintainable structure.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">Debug with intent</h3>
-            <p class="card-text">
-              I don’t guess-and-check. I isolate variables, test assumptions, and follow evidence until the root cause makes sense.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">Make it measurable</h3>
-            <p class="card-text">
-              Data helps expose reality. I like metrics, tests, and clear definitions that keep systems honest.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
+    <!-- PROJECTS -->
     <section id="projects" class="section section-alt">
       <div class="container">
         <header class="section-head">
@@ -203,7 +117,7 @@
             <h3 class="card-title">Autocorrect and Movie Rater</h3>
             <p class="card-text">
               Built an autocorrect system using Python dictionaries to handle insertions, deletions, swaps, and replacements.
-              Processed JSON movie and Twitter ratings to compute weighted combined ratings for year and genre analysis.
+              Processed JSON movie and Twitter ratings to compute weighted combined ratings.
             </p>
             <p class="meta">Python • Dictionaries • JSON • Fall 2025</p>
           </article>
@@ -212,7 +126,7 @@
             <h3 class="card-title">Personal Portfolio Website</h3>
             <p class="card-text">
               Founder-style personal site built for ITWS-1100 using semantic HTML and shared CSS.
-              Includes AI-assisted iteration history (prompt → output) with versioned commits.
+              Includes AI-assisted iteration history (prompt → output).
             </p>
             <p class="meta">HTML • CSS • ITWS-1100</p>
           </article>
@@ -220,12 +134,13 @@
       </div>
     </section>
 
-    <section id="contact" class="section section-alt">
+    <!-- CONTACT -->
+    <section id="contact" class="section">
       <div class="container">
         <header class="section-head">
           <h2 class="section-title">Contact</h2>
           <p class="section-subtitle">
-            Best way to reach me: email. I respond fastest with clear context + what you need.
+            Best way to reach me: email.
           </p>
         </header>
 
@@ -234,13 +149,31 @@
             Email:
             <a href="mailto:collid7@rpi.edu">collid7@rpi.edu</a>
           </p>
-
-          <p class="card-text">
-            I’m open to: internships, campus opportunities, mentorship, and project collaborations.
-          </p>
         </div>
       </div>
     </section>
+
+    <!-- COMING SOON / FUTURE -->
+    <section class="future-section">
+      <div class="container future-inner">
+        <h2 class="future-title">This is just the beginning...</h2>
+
+        <p class="future-text">
+          I’m in the early stages of a four-year build — refining technical depth,
+          exploring systems, expanding software experience, and pushing into analytics.
+        </p>
+
+        <p class="future-text">
+          This site will grow alongside my work: more projects, deeper case studies,
+          internships, leadership, and real-world systems.
+        </p>
+
+        <p class="future-highlight">
+          Version 1.0 — many iterations ahead.
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
