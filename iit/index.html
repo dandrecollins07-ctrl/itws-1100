@@ -4,93 +4,268 @@
   <meta charset="UTF-8">
   <title>D'Andre Collins</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="D’Andre Collins — CS + ITWS student at RPI focused on software, systems, and analytics.">
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body>
-  <header class="header">
-    <h1>D'Andre Collins</h1>
-    <p>
-      <strong>Home</strong> |
-      <a href="labs/index.html">Labs</a> |
-      <a href="lab02/index.html">Resume</a>
-    </p>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <a class="brand-link" href="index.html" aria-label="Go to homepage">
+          D’Andre Collins
+        </a>
+        <p class="brand-sub">CS + ITWS @ RPI • Software • Systems • Analytics</p>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li>
+            <a class="nav-link is-active" href="index.html">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="#projects">
+              Projects
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="#contact">
+              Contact
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link"
+               href="labs/index.html"
+               target="_blank"
+               rel="noopener">
+              Labs
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link"
+               href="lab02/index.html"
+               target="_blank"
+               rel="noopener">
+              Resume
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Welcome</h2>
-      <hr>
+  <main id="content">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <p class="eyebrow">Software + systems thinking • backed by data</p>
 
-      <p class="subtext">
-        I am a dual major in Computer Science and Information Technology & Web Science at
-        Rensselaer Polytechnic Institute. My academic interests focus on
-        <strong>systems engineering</strong> and <strong>data analytics</strong>,
-        with an emphasis on building reliable, well-structured technical systems.
-      </p>
+          <h1 class="hero-title">
+            I build <span class="accent">clean</span> software,
+            and I care how it behaves in the real world.
+          </h1>
 
-      <p class="subtext">
-        Mathematics is one of my favorite subjects due to its emphasis on intense
-        problem solving and structured thinking. I enjoy working through challenging
-        problems that require persistence and multiple approaches.
-      </p>
+          <p class="hero-lede">
+            I’m a dual major in Computer Science and Information Technology & Web Science at RPI.
+            I’m interested in software engineering, systems engineering, and data analytics — building
+            solutions that are structured, testable, and easy to understand.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn"
+               href="lab02/index.html"
+               target="_blank"
+               rel="noopener">
+              View Resume
+            </a>
+
+            <a class="btn btn-ghost"
+               href="labs/index.html"
+               target="_blank"
+               rel="noopener">
+              See Labs
+            </a>
+          </div>
+
+          <ul class="quick-facts" aria-label="Quick facts">
+            <li><span class="pill">Focus</span> Software • Systems • Analytics</li>
+            <li><span class="pill">Strengths</span> Debugging • Structure • Communication</li>
+            <li><span class="pill">Location</span> RPI • Troy, NY</li>
+          </ul>
+        </div>
+
+        <div class="hero-right">
+          <div class="headshot-card">
+            <div class="headshot-frame">
+              <!--
+                HEADSHOT SETUP (NO JS):
+                Put your real headshot here:
+                assets/images/headshot.png
+
+                IMPORTANT:
+                - The filename MUST match exactly (case sensitive).
+              -->
+              <picture>
+                <source srcset="assets/images/headshot.png">
+                <img class="headshot-img"
+                     src="assets/images/headshot-placeholder.svg"
+                     alt="Headshot of D'Andre Collins">
+              </picture>
+            </div>
+
+            <div class="headshot-caption">
+              <p class="headshot-name">D’Andre Collins</p>
+              <p class="headshot-role">CS + ITWS • RPI</p>
+            </div>
+          </div>
+
+          <div class="card highlight">
+            <h2 class="card-title">Now</h2>
+            <p class="card-text">
+              Strengthening fundamentals in data structures, linear algebra, and web development while
+              building a portfolio I can explain clearly and confidently.
+            </p>
+          </div>
+
+          <div class="card highlight">
+            <h2 class="card-title">What I value</h2>
+            <p class="card-text">
+              Reliability, clarity, and measurable results. I like code that makes sense to humans and still holds up under constraints.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- PRINCIPLES (NOT IN NAV) -->
+    <section id="principles" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Principles</h2>
+          <p class="section-subtitle">
+            The rules I try to follow when I build anything technical.
+          </p>
+        </header>
     <!-- testing azure -->
     <section class="top-space">
       <h2>Goals & Academic Interests</h2>
       <hr> 
 
-      <ul>
-        <li>Develop strong fundamentals in systems design and data-driven decision making</li>
-        <li>Apply computing concepts to real-world infrastructure and analytics problems</li>
-        <li>Build technical solutions that balance performance, clarity, and usability</li>
-      </ul>
+        <div class="grid-3">
+          <article class="card">
+            <h3 class="card-title">Clarity wins</h3>
+            <p class="card-text">
+              If I can’t explain it simply, it isn’t finished. I optimize for readable code and maintainable structure.
+            </p>
+          </article>
 
-      <p class="subtext">
-        To better understand how people interact with technology, I’ve taken coursework
-        in <strong>cognitive science</strong>, which has shaped how I think about usability,
-        human behavior, and decision-making in technical systems.
-      </p>
+          <article class="card">
+            <h3 class="card-title">Debug with intent</h3>
+            <p class="card-text">
+              I don’t guess-and-check. I isolate variables, test assumptions, and follow evidence until the root cause makes sense.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Make it measurable</h3>
+            <p class="card-text">
+              Data helps expose reality. I like metrics, tests, and clear definitions that keep systems honest.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="top-space">
-      <h2>Outside the Classroom</h2>
-      <hr>
+    <!-- PROJECTS -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">
+            Selected work I’ve completed and can walk through clearly.
+          </p>
+        </header>
 
-      <p class="subtext">
-        Outside of academics, I spend a lot of time staying active. I regularly go to the gym
-        and enjoy playing basketball as a way to relieve stress.
-      </p>
+        <div class="grid-3">
+          <article class="card project">
+            <h3 class="card-title">Document Analyzer</h3>
+            <p class="card-text">
+              Parsed and analyzed documents to calculate word sophistication, word-pair counts, and language variety.
+              Implemented Jaccard similarity to compare style and content similarity using sets and file handling.
+            </p>
+            <p class="meta">Python • NLP • Sets • Fall 2025</p>
+          </article>
 
-      <p class="subtext">
-        I’m also a longtime Minecraft player — one of the first experiences
-        that sparked my interest in systems, automation, and creative problem solving.
-      </p>
+          <article class="card project">
+            <h3 class="card-title">Autocorrect and Movie Rater</h3>
+            <p class="card-text">
+              Built an autocorrect system using Python dictionaries to handle insertions, deletions, swaps, and replacements.
+              Processed JSON movie and Twitter ratings to compute weighted combined ratings for year and genre analysis.
+            </p>
+            <p class="meta">Python • Dictionaries • JSON • Fall 2025</p>
+          </article>
+
+          <article class="card project">
+            <h3 class="card-title">Personal Portfolio Website</h3>
+            <p class="card-text">
+              Founder-style personal site built for ITWS-1100 using semantic HTML and shared CSS.
+              Includes AI-assisted iteration history (prompt → output) with versioned commits.
+            </p>
+            <p class="meta">HTML • CSS • ITWS-1100</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="top-space">
-      <h2>Explore</h2>
-      <hr>
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">
+            Best way to reach me: email. I respond fastest with clear context + what you need.
+          </p>
+        </header>
 
-      <ul>
-        <li><a href="labs/index.html">View ITWS-1100 Labs</a></li>
-        <li><a href="lab02/index.html">View Resume</a></li>
-        <li>
-          <a href="https://github.com/dandrecollins07-ctrl" target="_blank" rel="noopener">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/dandrecollins" target="_blank" rel="noopener">
-            LinkedIn
-          </a>
-        </li>
-      </ul>
+        <div class="card">
+          <p class="card-text">
+            Email:
+            <a href="mailto:collid7@rpi.edu">collid7@rpi.edu</a>
+          </p>
+
+          <p class="card-text">
+            I’m open to: internships, campus opportunities, mentorship, and project collaborations.
+          </p>
+        </div>
+      </div>
     </section>
+
+    <!-- FUTURE / COMING SOON (SHORT VERSION) -->
+    <section class="future-section">
+      <div class="container future-inner">
+        <h2 class="future-title">This is just the beginning.</h2>
+        <p class="future-highlight">Version 1.0 — many iterations ahead.</p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2026 D’Andre Collins</p>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="footer-text">&copy; 2026 D’Andre Collins</p>
+      <p class="footer-text">
+        Built for ITWS-1100 • No JavaScript • Semantic HTML • Shared CSS
+      </p>
+    </div>
   </footer>
 </body>
 </html>
