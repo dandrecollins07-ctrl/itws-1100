@@ -1,17 +1,83 @@
-channel {
+/* Simple styling for RSS/Atom XML when viewed in a browser */
+
+/* General page */
+feed, rss {
   display: block;
   font-family: Arial, sans-serif;
   margin: 20px;
 }
 
-title {
+/* RSS Channel formatting */
+rss channel {
   display: block;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 15px;
+  padding: 10px;
 }
 
-description {
+rss channel > title {
   display: block;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+rss channel > description,
+rss channel > link,
+rss channel > lastBuildDate,
+rss channel > pubDate {
+  display: block;
+  margin: 4px 0;
+}
+
+/* RSS Items */
+rss item {
+  display: block;
+  margin: 12px 0;
+  padding: 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+}
+
+rss item > title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+rss item > link,
+rss item > pubDate,
+rss item > guid,
+rss item > description {
+  display: block;
+  margin: 3px 0;
+}
+
+/* Atom styling (light) */
+feed > title {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
   margin-bottom: 10px;
+}
+
+feed entry {
+  display: block;
+  margin: 12px 0;
+  padding: 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+}
+
+feed entry > title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+feed entry > summary,
+feed entry > updated,
+feed entry > id {
+  display: block;
+  margin: 3px 0;
 }
