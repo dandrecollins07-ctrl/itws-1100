@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="rss.css"?>
+
+<rss version="2.0">
+  <channel>
+    <title>D’Andre Collins ITWS Labs</title>
+    <description>This feed publishes updates to my ITWS-1100 lab projects and coursework.</description>
+    <link>http://collid7rpi.eastus.cloudapp.azure.com/iit/</link>
+    <lastBuildDate>Thu, 19 Feb 2026 17:30:00 +0000</lastBuildDate>
+    <pubDate>Sun, 01 Feb 2026 17:00:00 +0000</pubDate>
+
+    <item>
+      <title>Lab 1 - Azure VM Setup</title>
+      <description>In this lab, I configured my development environment, connected GitHub Desktop, and deployed an Azure virtual machine to host my coursework.</description>
+      <link>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab01/</link>
+      <guid>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab01/</guid>
+      <pubDate>Sun, 01 Feb 2026 17:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Lab 2 - HTML Resume</title>
+      <description>In this lab, I created a semantic HTML5 version of my resume and styled it using CSS for improved structure and presentation.</description>
+      <link>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab02/</link>
+      <guid>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab02/</guid>
+      <pubDate>Thu, 05 Feb 2026 17:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Lab 3 - Personal Website</title>
+      <description>In this lab, I began developing my personal website to showcase my labs, projects, and coursework using structured HTML and CSS.</description>
+      <link>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab03/</link>
+      <guid>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab03/</guid>
+      <pubDate>Mon, 16 Feb 2026 17:00:00 +0000</pubDate>
+    </item>
+
+    <item>
+      <title>Lab 4 - RSS and Atom Feeds</title>
+      <description>In this lab, I created valid RSS 2.0 and Atom 1.0 XML feeds to publish updates for my ITWS coursework.</description>
+      <link>http://collid7rpi.eastus.cloudapp.azure.com/iit/labs/lab04/</link>
+      <guid>http://collid7rpi.eastus.cloudapp.azure.com/iit/labs/lab04/</guid>
+      <pubDate>Thu, 19 Feb 2026 17:30:00 +0000</pubDate>
+    </item>
+
+  </channel>
+</rss>

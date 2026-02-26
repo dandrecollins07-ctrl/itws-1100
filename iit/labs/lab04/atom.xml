@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="rss.css"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>D’Andre Collins ITWS Labs</title>
+
+  <id>http://collid7rpi.eastus.cloudapp.azure.com/iit/labs/lab04/atom.xml</id>
+  <updated>2026-02-19T17:30:00Z</updated>
+
+  <author>
+    <name>D’Andre Collins</name>
+  </author>
+
+  <link href="http://collid7rpi.eastus.cloudapp.azure.com/iit/" />
+  <link rel="self" type="application/atom+xml"
+        href="http://collid7rpi.eastus.cloudapp.azure.com/iit/labs/lab04/atom.xml" />
+
+  <entry>
+    <title>Lab 1 - Azure VM Setup</title>
+    <id>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab01/</id>
+    <updated>2026-02-01T17:00:00Z</updated>
+    <link href="http://collid7rpi.eastus.cloudapp.azure.com/iit/lab01/" />
+    <summary>In this lab, I configured my dev environment, connected GitHub Desktop, and deployed an Azure VM to host my coursework.</summary>
+  </entry>
+
+  <entry>
+    <title>Lab 2 - HTML Resume</title>
+    <id>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab02/</id>
+    <updated>2026-02-05T17:00:00Z</updated>
+    <link href="http://collid7rpi.eastus.cloudapp.azure.com/iit/lab02/" />
+    <summary>In this lab, I created and styled a semantic HTML resume using CSS for layout and presentation.</summary>
+  </entry>
+
+  <entry>
+    <title>Lab 3 - Personal Website</title>
+    <id>http://collid7rpi.eastus.cloudapp.azure.com/iit/lab03/</id>
+    <updated>2026-02-16T17:00:00Z</updated>
+    <link href="http://collid7rpi.eastus.cloudapp.azure.com/iit/lab03/" />
+    <summary>In this lab, I began building my personal website to publish labs and showcase projects.</summary>
+  </entry>
+
+  <entry>
+    <title>Lab 4 - RSS + Atom Feeds</title>
+    <id>http://collid7rpi.eastus.cloudapp.azure.com/iit/labs/lab04/</id>
+    <updated>2026-02-19T17:30:00Z</updated>
+    <link href="http://collid7rpi.eastus.cloudapp.azure.com/iit/labs/lab04/" />
+    <summary>In this lab, I created valid RSS 2.0 and Atom 1.0 feeds to publish updates for my ITWS coursework.</summary>
+  </entry>
+
+</feed>
