@@ -7,4 +7,3 @@ This lab implements JavaScript form validation and user interaction.
 - Nickname button displaying "FirstName LastName is Nickname"
 - Comments textbox behavior using focus and blur events
 - CSS focus highlighting for inputs
-- This lab demonstrates JavaScript form validation and DOM interaction.
