@@ -7,3 +7,6 @@ One important issue came up in Problem 5. When I added a new list item using app
 To fix this, I used event delegation with the .on() method. Instead of attaching the click event directly to each <li>, I attached it to the parent element (#labList) and specified that it should listen for clicks on its child <li> elements. This allows both existing and newly added list items to respond to clicks correctly.
 
 Overall, this lab showed me the difference between static and dynamic elements, and how to properly handle events when elements are created after the page loads.
+
+Azure link: http://collid7rpi.eastus.cloudapp.azure.com/lab06/lab6.html
+
