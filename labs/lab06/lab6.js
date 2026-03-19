@@ -39,7 +39,18 @@ $(document).ready(function () {
    // Problem 2 (10 pts): Make the "lorem ipsum" paragraphs
    //   vanish over a 2 sec duration when a user clicks "Hide text";
    //   make it appear with a 3.3 second duration when a user clicks "Show text":
+  $('#hideText').click(function (event) {
+   //Fade out paragraphs: 
+   event.preventDefault();
+   $('#showHideBlock p').fadeOut(2000);
+});
 
+  $('#showText').click(function (event){
+   //fade in paragraphs
+   event.preventDefault();
+   $('#showHideBlock p').fadeIn(3300);
+  });
+ 
 
    // Problem 3 (10 pts): When a normal list item is clicked, make it turn red using addClass.
    //            When a red list item is clicked change it back (you need to look up the appropriate jQuery method to do this)
