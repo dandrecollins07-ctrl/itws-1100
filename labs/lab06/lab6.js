@@ -55,6 +55,15 @@ $(document).ready(function () {
    // Problem 3 (10 pts): When a normal list item is clicked, make it turn red using addClass.
    //            When a red list item is clicked change it back (you need to look up the appropriate jQuery method to do this)
    // (Note that there already is a css style named ".red" in lab6.css)
+$('#labList li').click(function () {
+   if ($(this).hasClass('red')) {
+      //remove class
+      $(this).removeClass('red');
+   } else {
+      //add class
+      $(this).addClass('red');
+   }
+});   
 
 
    // Problem 4 (10 pts): When a user clicks on the "Add a list item" button, add a new list item to the end of the list.
