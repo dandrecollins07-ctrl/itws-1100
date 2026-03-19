@@ -55,7 +55,7 @@ $(document).ready(function () {
    // Problem 3 (10 pts): When a normal list item is clicked, make it turn red using addClass.
    //            When a red list item is clicked change it back (you need to look up the appropriate jQuery method to do this)
    // (Note that there already is a css style named ".red" in lab6.css)
-$('#labList li').click(function () {
+$('#labList').on('click', 'li', function () { //This was changed as I realized when a new list was added it would not turn red.
    if ($(this).hasClass('red')) {
       //remove class
       $(this).removeClass('red');
@@ -67,6 +67,11 @@ $('#labList li').click(function () {
 
 
    // Problem 4 (10 pts): When a user clicks on the "Add a list item" button, add a new list item to the end of the list.
+$('#AddListItem').click(function () {
+   var count = $('#labList li').length; //This will be my counter so I don't have to hardcode
+   var newNumber = count + 1;
+   $('#labList').append("<li>List item " + newNumber + "</li>");
+});
 
    // Problem 5 (10 pts) - what happens when you click on the new li?  Why? (Explain in your readme file)
    //   ie if it works as after #3 above, why? if it doesn't, why not?  How would you fix it?
@@ -77,6 +82,11 @@ $('#labList li').click(function () {
 
 
    // Problem 5 (10 pts): lookup another jquery method and use this code on the "Toggle Text"
+$('#toggleText').click(function (event) {
+   event.preventDefault();
+   $('#showHideBlock p').fadeToggle();
+});
+
    // link to show/hide the text:
 
    // Problems: 50 pts
