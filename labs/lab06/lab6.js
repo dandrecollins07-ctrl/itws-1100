@@ -13,6 +13,7 @@ $(document).ready(function () {
       alert('You\'ve clicked the lab button');
    });
 
+   //Good skeleton above to constantly follow
 
 
    // Problem 1 (10 pts): When the user clicks on the <h1>,
@@ -21,7 +22,17 @@ $(document).ready(function () {
    //change the color to be something other than blue or black
    //change the text size to 200% of normal
    // (note that there is already a class defined for the area where your name should go)
-
+   $('h1').click(function () {
+      //Want the function to target the class name:
+      //Since we are changing multiple properties I will store with var:
+      var name = $('.myName');
+      name.text("D'Andre Collins");
+      //Need to change the css as well:
+       name.css('font-style','normal'); //Changing font style so small-caps properly works.
+      name.css('font-variant','small-caps');
+      name.css('color','red');
+      name.css('font-size','200%');     
+   });
 
 
 
