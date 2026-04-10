@@ -33,9 +33,6 @@
       <a href="PHPSlide14index.php" target="_blank">Slide 14 - POST &amp; Form data</a><br />
       <a href="timetest.php" target="_blank">Timetest</a><br />
       <a href="PHPSlideExTimeButton.php" target="_blank">import</a>
-      <form action="time.php" method="post">
-      <button type="submit">Get Time</button>
-      </form>
    </p>
 
 </body>
