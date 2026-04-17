@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // CONNECT TO DATABASE
-$conn = mysqli_connect("localhost", "phpmyadmin", "", "iit");
+$conn = mysqli_connect("localhost", "phpmyadmin", "password", "iit");
 
 // CHECK CONNECTION
 if (!$conn) {
