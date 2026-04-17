@@ -1,11 +1,12 @@
 <?php
+$servername = "localhost";
+$username = "phpmyadmin";
+$password = "password";
+$dbname = "iit";
 
-// connect to database
-$conn = mysqli_connect("localhost", "phpmyadmin", "password", "iit");
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
 ?>
