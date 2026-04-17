@@ -1,7 +1,7 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "lab9_db");
+$conn = mysqli_connect("localhost", "phpmyadmin", "", "iit");
 
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
