@@ -1,11 +1,3 @@
-5. Fill prompt-log.md
-
-Minimum 8 prompts
-What you asked
-What AI gave
-What YOU changed and why
-
-
 # Prompt Log — Quiz 3: Guestbook Feature
 
 ---
@@ -90,3 +82,54 @@ this assignment.
 POST sends data in the request body, not the URL. Since I'm writing
 to a database, POST is semantically correct and avoids exposing
 visitor messages in the browser address bar.
+
+## Prompt 3 — PHP Write Logic
+
+**Prompt given:**
+> I have a MySQL database and a guestbook table.
+> Help me write PHP logic to:
+> - Receive form input using $_POST
+> - Validate the input (not empty)
+> - Insert the data into MySQL using prepared statements
+> Requirements:
+> - Use mysqli
+> - Use prepared statements with bind_param
+> - Show each step clearly
+> Also explain:
+> - Why prepared statements are necessary
+> - What SQL injection is in this context
+
+**What it returned:**
+A full submit.php file with connection, validation, prepared
+statement INSERT, and redirect. Included explanation of each step
+and a concrete SQL injection example showing what a DROP TABLE
+attack looks like when string concatenation is used instead.
+
+**What I kept:**
+The full prepared statement structure — mysqli_prepare, 
+bind_param with "ss" type string, execute, close, and the
+header() redirect with exit(). The ?? '' null coalescing
+on $_POST reads and trim() on both inputs were good catches
+I wouldn't have thought to add. Kept the intentionally vague
+die() message for the connection failure — learned that
+exposing mysqli_connect_error() is itself a vulnerability.
+
+**What I changed:**
+Swapped the die() on validation failure for a cleaner redirect
+back to the form with an error parameter in the URL, so the
+user sees feedback on the actual page instead of a blank error
+screen. Also moved DB credentials into a separate db.php file
+that gets included, to keep them out of submit.php directly.
+
+**What I threw away:**
+An early version that used $_POST directly inside the SQL
+string without preparing first — the AI generated this as a
+"before" example for contrast. That version never touched
+my actual codebase.
+
+**Key decision — prepared statements:**
+The AI's SQL injection example made the mechanism concrete.
+The query structure locks in before data arrives. The user's
+input is always treated as data, never parsed as SQL syntax.
+This is why parameterization is the fix, not just filtering
+special characters.
