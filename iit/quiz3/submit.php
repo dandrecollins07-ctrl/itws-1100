@@ -1,27 +1,29 @@
 <?php
 
-include('config.php');
+// Block direct access (must be POST)
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: guestbook.php");
+    exit();
+}
 
-// Get form data
+include __DIR__ . '/config.php';
+
 $name = trim($_POST['name'] ?? '');
 $message = trim($_POST['message'] ?? '');
 
-// Validate
 if (empty($name) || empty($message)) {
-    die("Name and message are required.");
+    echo "error";
+    exit();
 }
 
-// Insert into DB
 $stmt = $conn->prepare("INSERT INTO guestbook (name, message) VALUES (?, ?)");
 $stmt->bind_param("ss", $name, $message);
 $stmt->execute();
 
-// Close
 $stmt->close();
 $conn->close();
 
-// Redirect back
-header("Location: guestbook.php");
+echo "success";
 exit();
 
 ?>

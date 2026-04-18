@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include __DIR__ . '/config.php';
 
 $sql = "SELECT name, message, created_at FROM guestbook ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
@@ -10,12 +10,18 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="UTF-8">
     <title>Guestbook</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="container">
+
 <h1>Guestbook</h1>
 
-<form id="guestbook-form" action="submit.php" method="POST">
+<p id="error-msg" style="display:none;"></p>
+
+<form id="guestbook-form" class="guestbook-form" action="submit.php" method="POST">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required maxlength="100">
 
@@ -27,6 +33,7 @@ $result = mysqli_query($conn, $sql);
 
 <h2>Entries</h2>
 
+<div id="entries-list">
 <?php
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -43,6 +50,13 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_free_result($result);
 mysqli_close($conn);
 ?>
+</div>
+
+</div>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="guestbook.js"></script>
 
 </body>
 </html>

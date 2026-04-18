@@ -17,162 +17,207 @@
 > 1. A CREATE TABLE statement
 > 2. Explanation of each column and why the data type was chosen
 > 3. Any improvements or best practices I should consider
->
-> Do not skip explanations. I need to understand this for a code walkthrough.
 
 **What it returned:**
-AI provided a `CREATE TABLE guestbook` statement with four columns
-(`id`, `name`, `message`, `created_at`) and a detailed explanation
-of each data type choice and why it was appropriate.
+A CREATE TABLE statement with columns `id`, `name`, `message`, and `created_at`, along with explanations for each data type.
 
 **What I kept:**
-The entire CREATE TABLE statement as-is — the column choices made
-sense after reading the explanations. `TEXT` for message instead of
-`VARCHAR` was a specific decision I agreed with since comment length
-is unpredictable. `DEFAULT CURRENT_TIMESTAMP` on `created_at` was
-a good catch — it means I never have to pass the timestamp from PHP.
+The full table structure. Using `TEXT` for the message made sense since comments can vary in length. `AUTO_INCREMENT` for the id and `DEFAULT CURRENT_TIMESTAMP` for created_at removed the need to manually manage those values in PHP.
 
 **What I changed:**
-Nothing in the schema itself for now. I noted the suggestion to add
-an index on `created_at` but held off — the guestbook won't have
-heavy traffic, so the optimization isn't needed yet.
+Nothing in the schema. It already matched what I needed.
 
 **What I threw away:**
-The suggestion to add a `status` column for soft-deletes. That
-feature is out of scope for this assignment and would complicate
-the PHP logic without adding anything the rubric requires.
+A suggestion to add extra columns like status. That was not required for this assignment and would add unnecessary complexity.
 
+---
 
 ## Prompt 2 — Basic Form + Structure
 
 **Prompt given:**
-> I am building a guestbook page using PHP, MySQL, HTML, and jQuery.
-> I need:
-> - A simple HTML form with name and comment fields
-> - The form should use POST
-> - The form should submit to a PHP file
-> Explain:
-> - Why POST is used instead of GET
-> - How form data is sent to PHP
-> Do not just give code. Explain each part clearly.
+> I need a simple HTML form for a guestbook using POST that submits to PHP. Explain how it works.
 
 **What it returned:**
-AI provided the HTML form structure with `id`, `name`, `action`, and
-`method` attributes explained, plus a breakdown of how POST differs
-from GET and how `$_POST` receives data in PHP.
+A basic form with `name` and `message` fields, using `method="POST"` and `action="submit.php"`.
 
 **What I kept:**
-The full form structure — `action="submit.php"` and `method="POST"`
-match my project layout. I kept both `id` and `name` attributes on
-the inputs after understanding they serve different purposes (id for
-JS, name for PHP). The `required` and `maxlength="100"` attributes
-matched my schema constraint on the name column.
+The full form structure. I kept both `id` and `name` attributes since they serve different purposes. I also kept `required` and `maxlength` to match the database constraints.
 
 **What I changed:**
-I updated the label text and added a placeholder attribute to both
-inputs to match the visual style of my site. The AI gave bare-bones
-HTML; I adjusted it to fit my actual page layout.
+Adjusted minor layout and structure to match my page.
 
 **What I threw away:**
-A suggested `<fieldset>` wrapper the AI included in one version —
-unnecessary for a two-field form and adds markup without benefit for
-this assignment.
+Extra HTML elements that were not needed for a simple form.
 
-**Why POST over GET (my understanding):**
-POST sends data in the request body, not the URL. Since I'm writing
-to a database, POST is semantically correct and avoids exposing
-visitor messages in the browser address bar.
+**Why POST:**
+POST sends data in the request body instead of the URL. Since this form writes to a database, POST is the correct method and avoids exposing user input in the address bar.
+
+---
 
 ## Prompt 3 — PHP Write Logic
 
 **Prompt given:**
-> I have a MySQL database and a guestbook table.
-> Help me write PHP logic to:
-> - Receive form input using $_POST
-> - Validate the input (not empty)
-> - Insert the data into MySQL using prepared statements
-> Requirements:
-> - Use mysqli
-> - Use prepared statements with bind_param
-> - Show each step clearly
-> Also explain:
-> - Why prepared statements are necessary
-> - What SQL injection is in this context
+> Help me write PHP to receive form data, validate it, and insert it into MySQL using prepared statements.
 
 **What it returned:**
-A full submit.php file with connection, validation, prepared
-statement INSERT, and redirect. Included explanation of each step
-and a concrete SQL injection example showing what a DROP TABLE
-attack looks like when string concatenation is used instead.
+A full `submit.php` file using `mysqli`, prepared statements, validation, and redirect logic.
 
 **What I kept:**
-The full prepared statement structure — mysqli_prepare, 
-bind_param with "ss" type string, execute, close, and the
-header() redirect with exit(). The ?? '' null coalescing
-on $_POST reads and trim() on both inputs were good catches
-I wouldn't have thought to add. Kept the intentionally vague
-die() message for the connection failure — learned that
-exposing mysqli_connect_error() is itself a vulnerability.
+The prepared statement pattern using `mysqli_prepare`, `bind_param`, and `execute`. I also kept `trim()` and validation checks to prevent empty input.
 
 **What I changed:**
-Swapped the die() on validation failure for a cleaner redirect
-back to the form with an error parameter in the URL, so the
-user sees feedback on the actual page instead of a blank error
-screen. Also moved DB credentials into a separate db.php file
-that gets included, to keep them out of submit.php directly.
+Moved the database connection into a separate `config.php` file instead of keeping it inside `submit.php`.
 
 **What I threw away:**
-An early version that used $_POST directly inside the SQL
-string without preparing first — the AI generated this as a
-"before" example for contrast. That version never touched
-my actual codebase.
+The example that used direct string concatenation for SQL. That was only shown as an unsafe example and was never used.
 
-**Key decision — prepared statements:**
-The AI's SQL injection example made the mechanism concrete.
-The query structure locks in before data arrives. The user's
-input is always treated as data, never parsed as SQL syntax.
-This is why parameterization is the fix, not just filtering
-special characters.
+**Key understanding:**
+Prepared statements prevent SQL injection by separating SQL structure from user data. The database treats user input as data only, not executable SQL.
 
+---
 
 ## Prompt 4 — Display Entries (Read Path)
 
 **Prompt given:**
-> Now help me display guestbook entries from MySQL using PHP.
-> Requirements:
-> - Fetch all entries
-> - Show newest entries first
-> - Loop through results and display name, message, and timestamp
-> Explain:
-> - How the SELECT query works
-> - How the loop outputs data into HTML
+> Help me display guestbook entries using PHP and MySQL.
 
 **What it returned:**
-A full guestbook.php file with a SELECT query using ORDER BY
-created_at DESC, a mysqli_num_rows() check for empty state,
-a while loop using mysqli_fetch_assoc() to print each row,
-and htmlspecialchars() wrapping all user-sourced output.
+A SELECT query with `ORDER BY created_at DESC`, a loop using `mysqli_fetch_assoc`, and output using `htmlspecialchars()`.
 
 **What I kept:**
-Everything — the query structure, the while loop pattern,
-and especially htmlspecialchars() on name and message. The
-explanation of why created_at doesn't need it (MySQL controls
-that value, not the user) was a useful distinction I wouldn't
-have thought to articulate. Kept the empty state message too.
+The full query and loop structure. I also kept `htmlspecialchars()` to prevent XSS when displaying user input.
 
 **What I changed:**
-Wrapped each entry div in slightly more structured HTML to
-match the styling of my actual page. Also added a date format
-tweak using PHP's date() function on created_at so it displays
-as something readable rather than the raw MySQL timestamp.
+Adjusted the HTML structure slightly to match my layout and CSS classes like `.entry`.
 
 **What I threw away:**
-An initial version that used SELECT * — switched to explicitly
-naming columns after understanding that * silently includes
-any future columns added to the table. Small thing but it
-shows intentional column selection.
+An earlier version using `SELECT *`. I switched to selecting only the needed columns.
 
-**Key understanding — why no prepared statement here:**
-No user input is in this query at all. Prepared statements
-exist to separate user data from SQL structure. A hardcoded
-SELECT with no WHERE clause on user input needs no preparation.
+**Key understanding:**
+No prepared statement is needed here because the query does not use user input. `htmlspecialchars()` is critical to prevent script injection when displaying stored data.
+
+---
+
+## Prompt 5 — Client-side Enhancement (jQuery)
+
+**Prompt given:**
+> Add jQuery interactivity to improve the guestbook experience.
+
+**What it returned:**
+AJAX form submission, client-side validation, form clearing, and animation using `slideDown()`.
+
+**What I kept:**
+The AJAX submission using `$.ajax()`. It allows the form to submit without reloading the page. I also kept the animation and validation logic.
+
+**What I changed:**
+Adjusted error handling and integrated it with my page structure.
+
+**What I threw away:**
+Unsafe HTML string concatenation. I used safe methods to prevent XSS on the client side.
+
+**Key understanding:**
+AJAX improves user experience by avoiding page reloads. The backend still receives data the same way through `$_POST`.
+
+---
+
+## Prompt 6 — File Structure
+
+**Prompt given:**
+> Suggest a clean file structure for my guestbook project.
+
+**What it returned:**
+A structured layout separating PHP, JS, CSS, and config files.
+
+**What I kept:**
+The full structure. Each file has one responsibility:
+- `guestbook.php` handles display
+- `submit.php` handles inserts
+- `config.php` handles database connection
+
+**What I changed:**
+Nothing structural. I organized everything inside the `quiz3/` folder.
+
+**Key understanding:**
+Separating responsibilities makes debugging easier and keeps the code organized.
+
+---
+
+## Prompt 7 — Deployment Awareness
+
+**Prompt given:**
+> What should I check when deploying PHP and MySQL to Azure?
+
+**What it returned:**
+A checklist including database setup, file paths, permissions, and common mistakes.
+
+**What I kept:**
+The use of `__DIR__` for includes and the permission commands for Apache.
+
+**What I changed:**
+Nothing major. I verified my database and table already existed.
+
+**What I threw away:**
+Suggestion to switch to PDO. I kept mysqli for consistency.
+
+**Key understanding:**
+Local and server environments are separate. The database and files must be set up manually on the server.
+
+---
+
+## Prompt 8 — Prep for break-it.md
+
+**Prompt given:**
+> Show examples of SQL injection and XSS vulnerabilities.
+
+**What it returned:**
+Examples of unsafe SQL queries and unsafe output, along with attack inputs and explanations.
+
+**What I kept:**
+Both SQL injection and XSS examples for my `break-it.md`.
+
+**What I threw away:**
+Extra examples not required by the assignment.
+
+**Key understanding:**
+SQL injection affects the write path. XSS affects the read path. Both must be handled correctly.
+
+---
+
+## Prompt 9 — Styling the Guestbook
+
+**Prompt given:**
+> Give me simple CSS to improve the look of my guestbook.
+
+**What it returned:**
+CSS for layout, form styling, and entry cards.
+
+**What I kept:**
+The container layout, form styling, and entry card design.
+
+**What I changed:**
+Adjusted spacing and matched class names with my HTML.
+
+**Why:**
+The goal was a clean and readable layout, not over-design.
+
+---
+
+## Prompt 10 — Debugging a Deployment Error
+
+**Prompt given:**
+> My page works locally but shows "Not Found" on Azure. How do I fix it?
+
+**What it returned:**
+Explanation that files were not uploaded, along with SCP instructions.
+
+**What I used:**
+The SCP command to upload my project to `/var/www/html/iit/`.
+
+**What I changed:**
+Ran SCP from the correct local directory. Initially I got a "No such file or directory" error because I was in the wrong path.
+
+**Why:**
+The issue was not code. The server simply did not have the files.
+
+**Key understanding:**
+Always verify files exist on the server before debugging code. Apache cannot serve files that are not there.
