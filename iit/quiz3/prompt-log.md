@@ -133,3 +133,46 @@ The query structure locks in before data arrives. The user's
 input is always treated as data, never parsed as SQL syntax.
 This is why parameterization is the fix, not just filtering
 special characters.
+
+
+## Prompt 4 — Display Entries (Read Path)
+
+**Prompt given:**
+> Now help me display guestbook entries from MySQL using PHP.
+> Requirements:
+> - Fetch all entries
+> - Show newest entries first
+> - Loop through results and display name, message, and timestamp
+> Explain:
+> - How the SELECT query works
+> - How the loop outputs data into HTML
+
+**What it returned:**
+A full guestbook.php file with a SELECT query using ORDER BY
+created_at DESC, a mysqli_num_rows() check for empty state,
+a while loop using mysqli_fetch_assoc() to print each row,
+and htmlspecialchars() wrapping all user-sourced output.
+
+**What I kept:**
+Everything — the query structure, the while loop pattern,
+and especially htmlspecialchars() on name and message. The
+explanation of why created_at doesn't need it (MySQL controls
+that value, not the user) was a useful distinction I wouldn't
+have thought to articulate. Kept the empty state message too.
+
+**What I changed:**
+Wrapped each entry div in slightly more structured HTML to
+match the styling of my actual page. Also added a date format
+tweak using PHP's date() function on created_at so it displays
+as something readable rather than the raw MySQL timestamp.
+
+**What I threw away:**
+An initial version that used SELECT * — switched to explicitly
+naming columns after understanding that * silently includes
+any future columns added to the table. Small thing but it
+shows intentional column selection.
+
+**Key understanding — why no prepared statement here:**
+No user input is in this query at all. Prepared statements
+exist to separate user data from SQL structure. A hardcoded
+SELECT with no WHERE clause on user input needs no preparation.
