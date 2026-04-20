@@ -1,0 +1,34 @@
+{
+  "projects": [
+    {
+      "title": "Lab 2: HTML Resume",
+      "description": "Built a resume using semantic HTML.",
+      "link": "labs/lab02/index.html"
+    },
+    {
+      "title": "Lab 3: Personal Website",
+      "description": "Developed my personal website with navigation and styling.",
+      "link": "labs/lab03/index.html"
+    },
+    {
+      "title": "Lab 4: RSS Feed",
+      "description": "Created an RSS feed using XML.",
+      "link": "labs/lab04/index.html"
+    },
+    {
+      "title": "Lab 5: JavaScript Form",
+      "description": "Implemented form validation using JavaScript.",
+      "link": "lab05/lab5.html"
+    },
+    {
+  "title": "Lab 6: jQuery",
+  "description": "Used jQuery for DOM manipulation and effects.",
+  "link": "lab06/lab6.html"
+    },
+    {
+      "title": "Lab 8: JSON & AJAX",
+      "description": "Dynamically loads project data using JSON and AJAX.",
+      "link": "lab08/index.html"
+    }
+  ]
+}
