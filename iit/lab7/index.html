@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 7 – MusicQuest | D'Andre Collins</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iit/css/style.css">
+  <style>
+    .lab7-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .lab7-hero h1 { color: #e94560; margin-bottom: 0.25rem; }
+    .lab7-hero .sub { color: #a0aec0; font-size: 1rem; margin-bottom: 1rem; }
+    .lab7-hero p { color: #cbd5e0; max-width: 600px; }
+    .role-badge {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      border-radius: 4px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .team-card { background: #f7f9fc; border-radius: 8px; padding: 1.25rem; border-left: 4px solid #e94560; }
+    .team-card h3 { margin: 0 0 0.25rem; font-size: 1rem; }
+    .team-card p { margin: 0; font-size: 0.875rem; color: #555; }
+    .task-list li { margin-bottom: 0.5rem; }
+    .task-list .you { font-weight: 600; color: #0f3460; }
+    .persona-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+    .persona-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; }
+    .persona-card h3 { margin: 0 0 0.25rem; }
+    .persona-meta { font-size: 0.8rem; color: #718096; margin-bottom: 1rem; }
+    .persona-section { margin-bottom: 0.75rem; }
+    .persona-section strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #4a5568; margin-bottom: 0.25rem; }
+    .links-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <a class="brand-link" href="/iit/" aria-label="Go to homepage">D'Andre Collins</a>
+        <p class="brand-sub">Lab 7 – Group Project</p>
+      </div>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/iit/">Home</a></li>
+          <li><a class="nav-link" href="/iit/labs/">Labs</a></li>
+          <li><a class="nav-link" href="/iit/lab02/">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="lab7-hero">
+    <div class="container">
+      <span class="role-badge">ITWS-1100 · Lab 7 · Group Project</span>
+      <h1>MusicQuest</h1>
+      <p class="sub">Group 4 — Nathen Pride, D'Andre Collins, Kevin Chen</p>
+      <p>
+        An interactive music discovery web game where users explore genres, compete with friends,
+        and find new songs without endless scrolling. Built with HTML, CSS, JavaScript, and a
+        custom JSON song dataset.
+      </p>
+      <div class="links-row">
+        <a class="btn" href="https://github.com/RPI-ITWS/itws1100-202601-team04" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="content" class="section">
+    <div class="container">
+
+      <section style="margin-bottom:2.5rem;">
+        <h2 class="section-title" style="font-size:1.4rem;">Team &amp; Roles</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <h3>D'Andre Collins <span style="font-size:0.75rem;color:#e94560;">← you</span></h3>
+            <p>Song dataset (JSON + metadata), playlist ranking algorithm</p>
+          </div>
+          <div class="team-card">
+            <h3>Kevin Chen</h3>
+            <p>Audio playback, game environment &amp; logic</p>
+          </div>
+          <div class="team-card">
+            <h3>Nathen Pride</h3>
+            <p>Animations, website layout &amp; visual design</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-bottom:2.5rem;">
+        <h2 class="section-title" style="font-size:1.4rem;">Project Plan</h2>
+        <p>
+          MusicQuest is a game-based music discovery app. Users answer prompts about their mood,
+          energy, and preferences and the app returns a ranked playlist using a custom algorithm
+          built on song metadata. Competitive features let users challenge friends.
+        </p>
+        <h3 style="margin-top:1.5rem;font-size:1rem;">Task Breakdown</h3>
+        <ul class="task-list">
+          <li><span class="you">D'Andre</span> — Structure the song dataset as JSON with metadata (genre, artist, energy, etc.)</li>
+          <li><span class="you">D'Andre</span> — Build the playlist ranking algorithm based on user input</li>
+          <li>Kevin — Implement audio playback / speaker access</li>
+          <li>Kevin — Build the game environment and scoring logic</li>
+          <li>Nathen — Design and implement site layout</li>
+          <li>Nathen — Create animations and visual transitions</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom:2.5rem;">
+        <h2 class="section-title" style="font-size:1.4rem;">User Personas</h2>
+        <div class="persona-grid">
+
+          <div class="persona-card">
+            <h3>Alex Brown</h3>
+            <p class="persona-meta">Age 19 · College Student · New York</p>
+            <div class="persona-section">
+              <strong>About</strong>
+              Listens to music daily, enjoys discovering new artists. Uses streaming platforms but
+              gets frustrated by repetitive recommendations. Likes casual games and interactive apps.
+            </div>
+            <div class="persona-section">
+              <strong>Goals</strong>
+              Compete with friends, find songs without endless scrolling, discover new genres effectively.
+            </div>
+            <div class="persona-section">
+              <strong>Pain Points</strong>
+              Repetitive playlists, no good way to explore new genres.
+            </div>
+          </div>
+
+          <div class="persona-card">
+            <h3>Jonah Bill</h3>
+            <p class="persona-meta">Age 34 · Music Teacher · New York</p>
+            <div class="persona-section">
+              <strong>About</strong>
+              Driven by student education, seeks tools that create excitement in the classroom.
+              Embraces technology but finds many platforms hard to connect with students through.
+            </div>
+            <div class="persona-section">
+              <strong>Goals</strong>
+              Inspire students, stay open to new music, make music fun and engaging in class.
+            </div>
+            <div class="persona-section">
+              <strong>Pain Points</strong>
+              Getting students to participate, lack of fun music-related tools for younger audiences.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section style="margin-bottom:2.5rem;">
+        <h2 class="section-title" style="font-size:1.4rem;">Design Focus</h2>
+        <p>
+          The interface prioritizes usability and engagement — simple navigation, interactive elements,
+          and clear feedback. Mockups were built in Figma and iterated based on the HCI principles
+          covered in class: user personas, affordances, and feedback loops.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="footer-text">&copy; 2026 D'Andre Collins</p>
+      <p class="footer-text">ITWS-1100 · Lab 7 · Group Project</p>
+    </div>
+  </footer>
+
+</body>
+</html>
