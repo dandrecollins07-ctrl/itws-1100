@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Lab 09 – Restricted"
+AuthUserFile /home/collid7/.htpasswd
+Require valid-user
