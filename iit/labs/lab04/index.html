@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 4: RSS & Atom Feeds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <a class="brand-link" href="../../index.html" aria-label="Go to homepage">
+          D'Andre Collins
+        </a>
+        <p class="brand-sub">ITWS-1100 • Lab 4</p>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../../index.html">Home</a></li>
+          <li><a class="nav-link" href="../index.html">Labs</a></li>
+          <li><a class="nav-link" href="../lab02/index.html">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="section">
+    <div class="container">
+      <header class="section-head">
+        <h1 class="section-title">Lab 4: RSS & Atom Feeds</h1>
+        <p class="section-subtitle">
+          Created RSS 2.0 and Atom 1.0 XML feeds to publish updates for my ITWS coursework.
+        </p>
+      </header>
+
+      <div class="grid-2">
+
+        <article class="card lab">
+          <div class="lab-top">
+            <h2 class="card-title">RSS 2.0 Feed</h2>
+          </div>
+          <p class="card-text">
+            RSS feed listing all lab entries with titles, descriptions, and links.
+          </p>
+          <div class="lab-actions">
+            <a class="btn btn-ghost" href="rss.xml">View RSS Feed</a>
+          </div>
+        </article>
+
+        <article class="card lab">
+          <div class="lab-top">
+            <h2 class="card-title">Atom 1.0 Feed</h2>
+          </div>
+          <p class="card-text">
+            Atom feed with the same lab entries in the Atom 1.0 format.
+          </p>
+          <div class="lab-actions">
+            <a class="btn btn-ghost" href="atom.xml">View Atom Feed</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="footer-text">&copy; 2026 D'Andre Collins</p>
+      <p class="footer-text">ITWS-1100 • Lab 4</p>
+    </div>
+  </footer>
+
+</body>
+</html>
