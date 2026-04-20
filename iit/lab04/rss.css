@@ -1,0 +1,17 @@
+channel {
+  display: block;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+title {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+description {
+  display: block;
+  margin-bottom: 10px;
+}
