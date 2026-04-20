@@ -5,16 +5,20 @@
   <title>D'Andre Collins</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="D’Andre Collins — CS + ITWS student at RPI focused on software, systems, and analytics.">
-  <link rel="stylesheet" href="/iit/css/style.css">
+
+  <!-- REQUIRED CSS PATH -->
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container nav">
+
       <div class="brand">
-        <a class="brand-link" href="/iit/index.html" aria-label="Go to homepage">
+        <a class="brand-link" href="/" aria-label="Go to homepage">
           D’Andre Collins
         </a>
         <p class="brand-sub">CS + ITWS @ RPI • Software • Systems • Analytics</p>
@@ -22,52 +26,47 @@
 
       <nav aria-label="Primary">
         <ul class="nav-list">
+
           <li>
-            <a class="nav-link is-active" href="/iit/index.html">
-              Home
-            </a>
+            <a class="nav-link is-active" href="/">Home</a>
           </li>
 
           <li>
-            <a class="nav-link" href="#projects">
-              Projects
-            </a>
+            <a class="nav-link" href="#projects">Projects</a>
           </li>
 
           <li>
-            <a class="nav-link" href="#contact">
-              Contact
-            </a>
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+          <!-- REQUIRED LINKS -->
+          <li>
+            <a class="nav-link" href="/labs/">Labs Index</a>
           </li>
 
           <li>
-            <a class="nav-link"
-               href="/iit/labs/index.html"
-               target="_blank"
-               rel="noopener">
-              Labs
-            </a>
+            <a class="nav-link" href="/lab02/">Resume</a>
           </li>
 
           <li>
-            <a class="nav-link"
-               href="/iit/labs/lab02/index.html"
-               target="_blank"
-               rel="noopener">
-              Resume
-            </a>
+            <a class="nav-link" href="/lab10/">Lab 10</a>
           </li>
+
         </ul>
       </nav>
+
     </div>
   </header>
 
+  <!-- MAIN -->
   <main id="content">
 
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
+
         <div class="hero-left">
+
           <p class="eyebrow">Software + systems thinking • backed by data</p>
 
           <h1 class="hero-title">
@@ -77,24 +76,13 @@
 
           <p class="hero-lede">
             I’m a dual major in Computer Science and Information Technology & Web Science at RPI.
-            I’m interested in software engineering, systems engineering, and data analytics — building
+            I focus on software engineering, systems engineering, and data analytics — building
             solutions that are structured, testable, and easy to understand.
           </p>
 
           <div class="hero-cta">
-            <a class="btn"
-               href="/iit/labs/lab02/index.html"
-               target="_blank"
-               rel="noopener">
-              View Resume
-            </a>
-
-            <a class="btn btn-ghost"
-               href="/iit/labs/index.html"
-               target="_blank"
-               rel="noopener">
-              See Labs
-            </a>
+            <a class="btn" href="/lab02/">View Resume</a>
+            <a class="btn btn-ghost" href="/labs/">See Labs</a>
           </div>
 
           <ul class="quick-facts" aria-label="Quick facts">
@@ -102,15 +90,17 @@
             <li><span class="pill">Strengths</span> Debugging • Structure • Communication</li>
             <li><span class="pill">Location</span> RPI • Troy, NY</li>
           </ul>
+
         </div>
 
         <div class="hero-right">
+
           <div class="headshot-card">
             <div class="headshot-frame">
               <picture>
-                <source srcset="/iit/assets/images/headshot.png">
+                <source srcset="/assets/images/headshot.png">
                 <img class="headshot-img"
-                     src="/iit/assets/images/headshot-placeholder.svg"
+                     src="/assets/images/headshot-placeholder.svg"
                      alt="Headshot of D'Andre Collins">
               </picture>
             </div>
@@ -135,124 +125,66 @@
               Reliability, clarity, and measurable results. I like code that makes sense to humans and still holds up under constraints.
             </p>
           </div>
+
         </div>
-      </div>
-    </section>
 
-    <!-- PRINCIPLES -->
-    <section id="principles" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2 class="section-title">Principles</h2>
-          <p class="section-subtitle">
-            The rules I try to follow when I build anything technical.
-          </p>
-        </header>
-
-        <div class="grid-3">
-          <article class="card">
-            <h3 class="card-title">Clarity wins</h3>
-            <p class="card-text">
-              If I can’t explain it simply, it isn’t finished. I optimize for readable code and maintainable structure.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">Debug with intent</h3>
-            <p class="card-text">
-              I don’t guess-and-check. I isolate variables, test assumptions, and follow evidence until the root cause makes sense.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">Make it measurable</h3>
-            <p class="card-text">
-              Data helps expose reality. I like metrics, tests, and clear definitions that keep systems honest.
-            </p>
-          </article>
-        </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="section section-alt">
       <div class="container">
-        <header class="section-head">
-          <h2 class="section-title">Projects</h2>
-          <p class="section-subtitle">
-            Selected work I’ve completed and can walk through clearly.
-          </p>
-        </header>
+
+        <h2 class="section-title">Projects</h2>
 
         <div class="grid-3">
+
           <article class="card project">
             <h3 class="card-title">Document Analyzer</h3>
             <p class="card-text">
               Parsed and analyzed documents to calculate word sophistication, word-pair counts, and language variety.
-              Implemented Jaccard similarity to compare style and content similarity using sets and file handling.
             </p>
-            <p class="meta">Python • NLP • Sets • Fall 2025</p>
           </article>
 
           <article class="card project">
-            <h3 class="card-title">Autocorrect and Movie Rater</h3>
+            <h3 class="card-title">Autocorrect System</h3>
             <p class="card-text">
-              Built an autocorrect system using Python dictionaries to handle insertions, deletions, swaps, and replacements.
-              Processed JSON movie and Twitter ratings to compute weighted combined ratings for year and genre analysis.
+              Built an autocorrect system using Python dictionaries handling insertions, deletions, swaps, and replacements.
             </p>
-            <p class="meta">Python • Dictionaries • JSON • Fall 2025</p>
           </article>
 
           <article class="card project">
-            <h3 class="card-title">Personal Portfolio Website</h3>
+            <h3 class="card-title">Portfolio Website</h3>
             <p class="card-text">
-              Founder-style personal site built for ITWS-1100 using semantic HTML and shared CSS.
-              Includes AI-assisted iteration history (prompt → output) with versioned commits.
+              Built using semantic HTML and shared CSS for ITWS-1100.
             </p>
-            <p class="meta">HTML • CSS • ITWS-1100</p>
           </article>
+
         </div>
+
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section section-alt">
+    <section id="contact" class="section">
       <div class="container">
-        <header class="section-head">
-          <h2 class="section-title">Contact</h2>
-          <p class="section-subtitle">
-            Best way to reach me: email. I respond fastest with clear context + what you need.
-          </p>
-        </header>
 
-        <div class="card">
-          <p class="card-text">
-            Email:
-            <a href="mailto:collid7@rpi.edu">collid7@rpi.edu</a>
-          </p>
+        <h2 class="section-title">Contact</h2>
 
-          <p class="card-text">
-            I’m open to: internships, campus opportunities, mentorship, and project collaborations.
-          </p>
-        </div>
-      </div>
-    </section>
+        <p>
+          Email:
+          <a href="mailto:collid7@rpi.edu">collid7@rpi.edu</a>
+        </p>
 
-    <section class="future-section">
-      <div class="container future-inner">
-        <h2 class="future-title">This is just the beginning.</h2>
-        <p class="future-highlight">Version 1.0 — many iterations ahead.</p>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <p class="footer-text">&copy; 2026 D’Andre Collins</p>
-      <p class="footer-text">
-        Built for ITWS-1100 • No JavaScript • Semantic HTML • Shared CSS
-      </p>
+    <div class="container">
+      <p>&copy; 2026 D’Andre Collins</p>
     </div>
   </footer>
 
