@@ -1,75 +1,59 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-include 'config.php';
+include('includes/init.inc.php');
+include('includes/functions.inc.php');
+?>
+<title>Actors &amp; Movies - ITWS</title>
 
-$sql = "
-SELECT a.firstname, a.lastname, m.title
-FROM actors_movies am
-JOIN actors a ON am.actorid = a.actorid
-JOIN movies m ON am.movieid = m.movieid
-";
-$result = mysqli_query($conn, $sql);
+<?php include('includes/head.inc.php'); ?>
 
-$sql2 = "
-SELECT m.title, a.firstname, a.lastname
-FROM actors_movies am
-JOIN movies m ON am.movieid = m.movieid
-JOIN actors a ON am.actorid = a.actorid
-";
-$result2 = mysqli_query($conn, $sql2);
+<h1>PHP &amp; MySQL</h1>
+
+<?php include('includes/menubody.inc.php'); ?>
+
+<?php
+$dbOk = false;
+include('config.php');
+@$db = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+
+if ($db->connect_error) {
+    echo '<div class="messages">Could not connect to the database. Error: ';
+    echo $db->connect_errno . ' - ' . $db->connect_error . '</div>';
+} else {
+    $dbOk = true;
+}
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Actors &amp; Movies</title>
-</head>
-<body>
-
-<nav>
-    <a href="actors.php">Actors</a> |
-    <a href="movies.php">Movies</a> |
-    <a href="actorsmovies.php">Actors &amp; Movies</a>
-</nav>
-
-<h2>Actors and their Movies</h2>
-
-<table border="1">
-<tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Movie</th>
-</tr>
+<h3>Movies and their Actors</h3>
+<table id="actorTable">
 <?php
-while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($row['firstname']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['lastname']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['title']) . "</td>";
-    echo "</tr>";
+if ($dbOk) {
+    $sql = "SELECT movies.title, movies.year, actors.firstname, actors.lastname
+            FROM actors_movies
+            JOIN movies ON actors_movies.movieid = movies.movieid
+            JOIN actors ON actors_movies.actorid = actors.actorid
+            ORDER BY movies.title";
+
+    $result = $db->query($sql);
+    $numRecords = $result->num_rows;
+
+    echo '<tr><th>Movie</th><th>Year</th><th>Actor</th></tr>';
+    for ($i = 0; $i < $numRecords; $i++) {
+        $record = $result->fetch_assoc();
+        if ($i % 2 == 0) {
+            echo '<tr>';
+        } else {
+            echo '<tr class="odd">';
+        }
+        echo '<td>' . htmlspecialchars($record['title']) . '</td>';
+        echo '<td>' . htmlspecialchars($record['year']) . '</td>';
+        echo '<td>' . htmlspecialchars($record['lastname']) . ', ' . htmlspecialchars($record['firstname']) . '</td>';
+        echo '</tr>';
+    }
+
+    $result->free();
+    $db->close();
 }
 ?>
 </table>
 
-<br><br>
-
-<h2>Movies and their Actors</h2>
-
-<table border="1">
-<tr>
-    <th>Movie</th>
-    <th>Actor</th>
-</tr>
-<?php
-while ($row = mysqli_fetch_assoc($result2)) {
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($row['title']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['firstname']) . " " . htmlspecialchars($row['lastname']) . "</td>";
-    echo "</tr>";
-}
-?>
-</table>
-
-</body>
-</html>
+<?php include('includes/foot.inc.php'); ?>
