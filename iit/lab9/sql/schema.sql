@@ -11,10 +11,18 @@ CREATE TABLE actors (
   dob DATE
 );
 
-CREATE TABLE actormovies (
+CREATE TABLE actors_movies (
   id INT AUTO_INCREMENT PRIMARY KEY,
   actorid INT,
   movieid INT,
   FOREIGN KEY (actorid) REFERENCES actors(actorid),
   FOREIGN KEY (movieid) REFERENCES movies(movieid)
 );
+
+-- Sample junction data linking actors to movies
+INSERT INTO actors_movies (actorid, movieid) VALUES
+  (1, 1),
+  (1, 3),
+  (2, 2),
+  (3, 4),
+  (4, 5);
