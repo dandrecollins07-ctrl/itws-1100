@@ -1,15 +1,15 @@
 <?php 
-include('includes/init.inc.php');
-include('includes/functions.inc.php');
+include('inclassexample/includes/init.inc.php');
+include('inclassexample/includes/functions.inc.php');
 ?>
 
 <title>Movies - ITWS</title>
 
-<?php include('includes/head.inc.php'); ?>
+<?php include('inclassexample/includes/head.inc.php'); ?>
 
 <h1>Movies</h1>
 
-<?php include('includes/menubody.inc.php'); ?>
+<?php include('inclassexample/includes/menubody.inc.php'); ?>
 
 <?php
 $dbOk = false;
@@ -24,7 +24,7 @@ if ($db->connect_error) {
     $dbOk = true;
 }
 
-// HANDLE INSERT
+// INSERT
 $havePost = isset($_POST["save"]);
 
 if ($havePost && $dbOk) {
@@ -37,7 +37,7 @@ if ($havePost && $dbOk) {
     $stmt->close();
 }
 
-// HANDLE DELETE
+// DELETE
 if (isset($_GET["delete"]) && $dbOk) {
     $id = intval($_GET["delete"]);
     $db->query("DELETE FROM movies WHERE movieid = $id");
@@ -92,4 +92,4 @@ if ($dbOk) {
 
 </table>
 
-<?php include('includes/foot.inc.php'); ?>
+<?php include('inclassexample/includes/foot.inc.php'); ?>
