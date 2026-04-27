@@ -1,68 +1,53 @@
-<?php 
-include('inclassexample/includes/init.inc.php');
-include('inclassexample/includes/functions.inc.php');
+<?php
+include 'config.php';
+
+if (isset($_GET['delete'])) {
+    $id = (int)$_GET['delete'];
+    mysqli_query($conn, "DELETE FROM movies WHERE movieid = $id");
+    header("Location: movies.php");
+    exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $stmt = mysqli_prepare($conn, "INSERT INTO movies (title, year) VALUES (?, ?)");
+    mysqli_stmt_bind_param($stmt, "ss", $_POST['title'], $_POST['year']);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
 ?>
 
-<title>Movies - ITWS</title>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies</title>
+</head>
+<body>
 
-<?php include('inclassexample/includes/head.inc.php'); ?>
+<nav>
+    <a href="actors.php">Actors</a> |
+    <a href="movies.php">Movies</a> |
+    <a href="actorsmovies.php">Actors & Movies</a>
+</nav>
 
 <h1>Movies</h1>
 
-<?php include('inclassexample/includes/menubody.inc.php'); ?>
-
-<?php
-$dbOk = false;
-
-include('config.php');
-@ $db = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-
-if ($db->connect_error) {
-    echo '<div class="messages">Could not connect to the database. Error: ';
-    echo $db->connect_errno . ' - ' . $db->connect_error . '</div>';
-} else {
-    $dbOk = true;
-}
-
-// INSERT
-$havePost = isset($_POST["save"]);
-
-if ($havePost && $dbOk) {
-    $title = htmlspecialchars($_POST["title"]);
-    $year = htmlspecialchars($_POST["year"]);
-
-    $stmt = $db->prepare("INSERT INTO movies (title, year) VALUES (?, ?)");
-    $stmt->bind_param("ss", $title, $year);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// DELETE
-if (isset($_GET["delete"]) && $dbOk) {
-    $id = intval($_GET["delete"]);
-    $db->query("DELETE FROM movies WHERE movieid = $id");
-}
-?>
-
-<h2>Add Movie</h2>
 <form method="POST">
     <input type="text" name="title" placeholder="Movie Title" required>
     <input type="text" name="year" placeholder="Year" required>
-    <input type="submit" name="save" value="Add Movie">
+    <button type="submit">Add Movie</button>
 </form>
 
 <h2>Movie List</h2>
 
 <?php
-if ($dbOk) {
-    $result = $db->query("SELECT * FROM movies");
-
-    while ($row = $result->fetch_assoc()) {
-        echo "<p>" . htmlspecialchars($row["title"]) . " (" . htmlspecialchars($row["year"]) . ") ";
-        echo "<a href='movies.php?delete=" . $row["movieid"] . "'>Delete</a></p>";
-    }
+$result = mysqli_query($conn, "SELECT * FROM movies");
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "<p>" . htmlspecialchars($row['title']) . " (" . htmlspecialchars($row['year']) . ") ";
+    echo "<a href='movies.php?delete=" . $row['movieid'] . "' onclick=\"return confirm('Delete this movie?')\">Delete</a></p>";
 }
 ?>
+
+<hr>
 
 <h2>Movies and their Actors</h2>
 
@@ -73,23 +58,22 @@ if ($dbOk) {
 </tr>
 
 <?php
-if ($dbOk) {
-    $sql = "SELECT movies.title, actors.name
-            FROM actors_movies
-            JOIN movies ON actors_movies.movieid = movies.movieid
-            JOIN actors ON actors_movies.actorid = actors.actorid";
+$sql = "SELECT movies.title, actors.name
+        FROM actors_movies
+        JOIN movies ON actors_movies.movieid = movies.movieid
+        JOIN actors ON actors_movies.actorid = actors.actorid";
 
-    $result = $db->query($sql);
+$result = mysqli_query($conn, $sql);
 
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($row["title"]) . "</td>";
-        echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
-        echo "</tr>";
-    }
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($row['title']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+    echo "</tr>";
 }
 ?>
 
 </table>
 
-<?php include('inclassexample/includes/foot.inc.php'); ?>
+</body>
+</html>
